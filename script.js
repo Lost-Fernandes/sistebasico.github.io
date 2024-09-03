@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const url = '/news'; // Faz a requisição ao servidor Node.js em vez da API diretamente
+    const apiKey = '3208963754a5463dadf965a872f083e9'; // Substitua pela sua chave de API
+    const url = `https://newsapi.org/v2/everything?q=Paraíba&language=pt&apiKey=${apiKey}`;
 
     fetch(url)
         .then(response => response.json())
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 newsContainer.innerHTML = ""; // Limpar conteúdo anterior
 
                 data.articles.forEach(article => {
+                    // Verifica se o artigo menciona "Paraíba" na descrição ou no título
                     if (article.title.includes("Paraíba") || (article.description && article.description.includes("Paraíba"))) {
                         const newsItem = document.createElement("div");
                         newsItem.classList.add("news-item");
@@ -35,12 +37,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (newsContainer.innerHTML === "") {
                     const noNews = document.createElement("p");
-                    noNews.textContent = "Nenhuma notícia encontrada sobre a campanha política de 2024 na Paraíba.";
+                    noNews.textContent = "Nenhuma notícia encontrada sobre a Paraíba.";
                     newsContainer.appendChild(noNews);
                 }
             } else {
                 const noNews = document.createElement("p");
-                noNews.textContent = "Nenhuma notícia encontrada sobre a campanha política de 2024 na Paraíba.";
+                noNews.textContent = "Nenhuma notícia encontrada sobre a Paraíba.";
                 newsContainer.appendChild(noNews);
             }
         })
