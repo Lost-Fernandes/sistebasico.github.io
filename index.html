@@ -3,21 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Notícias Atualizadas da nossa Paraíba</title>
+    <title>Notícias Atualizadas da nossa Paraíba</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: rgb(54, 57, 58);
+            text-shadow: 2px 2px #ccc;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #news-container {
+            margin-top: 20px;
+        }
+
+        .news-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .news-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .news-item a {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <marquee bgcolor="" direction="left" scrollamount="10">
-            <h1 style="color: rgb(54, 57, 58);">Ou Paraíba Arretada!</h1>
+            <h1>Ou Paraíba Arretada!</h1>
         </marquee>
-        <p>Você na ponta da informção!</p>
+        <p>Você na ponta da informação!</p>
     </header>
 
     <main>
         <section id="news-container">
             <h2>Notícias Recentes</h2>
-            <div id="news"></div>
+            <div id="news">
+                <!-- Notícias serão carregadas aqui pelo JavaScript -->
+            </div>
         </section>
     </main>
 
@@ -28,3 +117,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
