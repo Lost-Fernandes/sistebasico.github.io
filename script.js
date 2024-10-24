@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const apiKey = '3208963754a5463dadf965a872f083e9'; // Substitua pela sua chave de API
-    const url = `https://newsapi.org/v2/everything?q=Paraíba AND (campanha política OR eleições 2024)&language=pt&from=2024-01-01&to=2024-12-31&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/everything?q=João Pessoa&language=pt&apiKey=${apiKey}`;
 
     fetch(url)
         .then(response => response.json())
@@ -11,38 +11,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 newsContainer.innerHTML = ""; // Limpar conteúdo anterior
 
                 data.articles.forEach(article => {
-                    // Verifica se o artigo menciona "Paraíba" na descrição ou no título
-                    if (article.title.includes("Paraíba") || (article.description && article.description.includes("Paraíba"))) {
-                        const newsItem = document.createElement("div");
-                        newsItem.classList.add("news-item");
+                    // Criar um item de notícia
+                    const newsItem = document.createElement("div");
+                    newsItem.classList.add("news-item");
 
-                        const newsTitle = document.createElement("h3");
-                        newsTitle.textContent = article.title;
+                    const newsTitle = document.createElement("h3");
+                    newsTitle.textContent = article.title;
 
-                        const newsDescription = document.createElement("p");
-                        newsDescription.textContent = article.description || "Descrição não disponível.";
+                    const newsDescription = document.createElement("p");
+                    newsDescription.textContent = article.description || "Descrição não disponível.";
 
-                        const newsLink = document.createElement("a");
-                        newsLink.textContent = "Leia mais";
-                        newsLink.href = article.url;
-                        newsLink.target = "_blank"; // Abre o link em uma nova aba
-                        
-                        newsItem.appendChild(newsTitle);
-                        newsItem.appendChild(newsDescription);
-                        newsItem.appendChild(newsLink);
+                    const newsLink = document.createElement("a");
+                    newsLink.textContent = "Leia mais";
+                    newsLink.href = article.url;
+                    newsLink.target = "_blank"; // Abre o link em uma nova aba
+                    
+                    // Adicionar os elementos no contêiner de notícias
+                    newsItem.appendChild(newsTitle);
+                    newsItem.appendChild(newsDescription);
+                    newsItem.appendChild(newsLink);
 
-                        newsContainer.appendChild(newsItem);
-                    }
+                    newsContainer.appendChild(newsItem);
                 });
-
-                if (newsContainer.innerHTML === "") {
-                    const noNews = document.createElement("p");
-                    noNews.textContent = "Nenhuma notícia encontrada sobre a campanha política de 2024 na Paraíba.";
-                    newsContainer.appendChild(noNews);
-                }
             } else {
+                // Se não houver notícias
                 const noNews = document.createElement("p");
-                noNews.textContent = "Nenhuma notícia encontrada sobre a campanha política de 2024 na Paraíba.";
+                noNews.textContent = "Nenhuma notícia encontrada sobre João Pessoa.";
                 newsContainer.appendChild(noNews);
             }
         })
